@@ -47,10 +47,7 @@ nnoremap <leader>k :action MethodUp<cr>
 nnoremap <leader>j :action MethodDown<cr>
 "try/catch
 nnoremap <C-s> :action SurroundWith<cr>
-"查看所有断点
-nnoremap gwb :action ViewBreakpoints<CR>
-"当前行打断点
-nnoremap <space>b :action ToggleLineBreakpoint<cr>
+
 "=============================
 "Code navigation
 "=============================
@@ -79,9 +76,9 @@ nnoremap gnx :action GotoNextIncompletePropertyAction<CR>
 ""Windows Action
 "=================================
 "上下拆分窗口
-nmap sp :action SplitHorizontally<CR><C-j>
+nmap vsp :action SplitHorizontally<CR><C-j>
 "左右拆分窗口
-nmap vsp :action SplitVertically<CR><C-l>
+nmap sp :action SplitVertically<CR><C-l>
 "跳到下个tab
 nnoremap gl :action NextTab<CR>
 "跳到上个tab
@@ -110,8 +107,15 @@ nnoremap <space>r :action Run<cr>
 nnoremap <leader>d :action DebugClass<cr>
 "debug启动
 nnoremap <space>d :action Debug<cr>
+"查看所有断点
+nnoremap gwb :action ViewBreakpoints<CR>
+"当前行打断点
+nnoremap <space>b :action ToggleLineBreakpoint<cr>
 
 "================================
 "Other Settings
 "================================
-nnoremap <leader>vs :source ~/.ideavimrc<CR>
+" 打开命令表
+noremap <space>h<space> :actionlist<CR>
+"重新加载资源
+nnoremap <leader>vs :source ~/_ideavimrc<CR>
