@@ -6,13 +6,16 @@ let mapleader = ","
 set surround "高效插件
 set hlsearch "搜索高亮
 set incsearch "输入搜索内容时就显示搜索结果
-set history=2000 "设置历史
+set history=10000 "设置历史
 set ignorecase "忽略大小写
 set smartcase " 自动匹配
 set autoindent " 自动缩进
+set relativenumber " 显示相对行号
 set smartindent " 智能缩进
 set showmode "左下角显示当前Vim模式
 set clipboard=unnamed "开启系统剪切板
+"清除高亮搜索
+nnoremap <space>sc :nohlsearch<CR>
 "=================================
 "Easy system clipboard copy/paste
 "=================================
@@ -29,16 +32,16 @@ nnoremap <space>e :action Switcher<cr>
 nnoremap <space>f :action FileStructurePopup<cr>
 "查找动作
 nnoremap <space>a :action GotoAction<cr>
-"快速查找和打开最近使用过的文件
-nnoremap <space>j :action RecentFiles<CR>
 "查看详细文档
 nnoremap <space>h :action QuickJavaDoc<CR>
 "跳转到给定的类
 map gc :action GotoClass<CR>
+"跳转指定的文件
+map gf :action GotoFile<CR>
 "回退
-map gb :action Back<CR>
+map gk :action Back<CR>
 "前进
-map gf:action Forward<CR>
+map gj :action Forward<CR>
 "重做
 map U :action VimRedo<cr>
 "上一个方法
@@ -59,12 +62,11 @@ nnoremap <space>] :action GotoImplementation<cr>
 nnoremap <space>[ :action GotoSuperMethod<cr>
 "添加测试方法（需选中）
 nnoremap <space>gt :action GotoTest<cr>
-"
+"高亮显示文件中用到的地方
 nnoremap <space>k :action HighlightUsagesInFile<cr>
 "跳到错误处
 nnoremap gne :action GotoNextError<CR>
-"跳到上一错误处
-nnoremap gep :action GotoPreviousError<CR>
+
 "跳到书签处
 nnoremap gnb :action GotoNextBookmark<CR>
 "跳到上一书签处
@@ -79,43 +81,30 @@ nnoremap gnx :action GotoNextIncompletePropertyAction<CR>
 nmap vsp :action SplitHorizontally<CR><C-j>
 "左右拆分窗口
 nmap sp :action SplitVertically<CR><C-l>
-"跳到下个tab
-nnoremap gl :action NextTab<CR>
+"将光标移到下一个窗口
+nnoremap gw <C-W>w
 "跳到上个tab
 nnoremap gh :action PreviousTab<CR>
-"将光标移到下边窗口
-nnoremap gj <C-W>j 
-"将光标移到上边窗口
-nnoremap gk <C-W>k 
-"检查代码格式
-nnoremap <leader>c :action CheckStyleCurrentFileAction<cr>]
-"关闭当前页
+"关闭当前
 nnoremap <space>q :action CloseContent<cr>
 "重新打开关闭页
 nnoremap <space>o :action ReopenClosedTab<cr>
-nnoremap <leader>ww <C-W>w " 将光标移到下一个窗口
-nnoremap <leader>wh <C-W>h " 将光标移到左边窗口
-
+"移动半页
+nnoremap <space>d  <C-d>
+nnoremap <Leader>u  <C-u>
 "================================
 "Run/Debug Action
 "===============================
-"运行当前类
-nnoremap <leader>r :action RunClass<cr>
+"重新启动
+nnoremap <leader>r :action Rerun<cr>
 "启动
 nnoremap <space>r :action Run<cr>
-"debug启动当前类
-nnoremap <leader>d :action DebugClass<cr>
 "debug启动
-nnoremap <space>d :action Debug<cr>
-"查看所有断点
-nnoremap gwb :action ViewBreakpoints<CR>
-"当前行打断点
-nnoremap <space>b :action ToggleLineBreakpoint<cr>
-
+nnoremap <leader>d :action Debug<cr>
 "================================
 "Other Settings
 "================================
 " 打开命令表
-noremap <space>h<space> :actionlist<CR>
+noremap <space>? :actionlist<CR>
 "重新加载资源
-nnoremap <leader>vs :source ~/_ideavimrc<CR>
+noremap <leader>vs :source ~/_ideavimrc<CR>
