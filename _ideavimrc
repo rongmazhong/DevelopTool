@@ -12,6 +12,7 @@ set smartcase " 自动匹配
 set autoindent " 自动缩进
 set relativenumber " 显示相对行号
 set smartindent " 智能缩进
+set so=5 " 自动前后显示5行
 set showmode "左下角显示当前Vim模式
 set clipboard=unnamed "开启系统剪切板
 "清除高亮搜索
